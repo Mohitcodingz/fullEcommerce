@@ -48,6 +48,7 @@ async function registerUser(req, res) {
     }
 
 }
+// checking if the users exits -> store in hashed password -> saving the new userin the database -> generating a jwt token  while sending welcome email to the (token function , sendEmail fucntion which is using nodemailer.)
 async function loginUser(req, res) {
     try {
         const { email, password } = req.body;

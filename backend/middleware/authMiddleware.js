@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const user = require('../model/user');
+// protect middleware to verify JWT token and authenticate user
 const protect = async (req, res, next) => {
     if (req.headers['authorization'] && req.headers['authorization'].startsWith('Bearer')) {
         try {
@@ -19,3 +20,4 @@ const protect = async (req, res, next) => {
 const admin = async (req, res, next) => {
 
 };
+module.exports = { protect, admin };

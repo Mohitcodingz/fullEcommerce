@@ -4,4 +4,4 @@
 3. user.js  :- to create the model of user.
 4. authMiddleware.js : -  jwt.verify the token and the admin role
 5. authRoutes.js : -  use the functions of authentication with the routes.
-6.sendEmail.js : - function for the sending email using the nodemailer. 
+6. sendEmail.js : - function for the sending email using the nodemailer.
