@@ -21,3 +21,4 @@ catch(error){
   console.log('Error sending email:', error);  
 }
 }
+module.exports = sendEmail;
