@@ -79,8 +79,8 @@ async function loginUser(req, res) {
 
 async function getUser(req, res) {
     try {
-        const user = await user.find({}).select('-password');
-        res.json(user);
+        const newUser = await user.find({}).select('-password');
+        res.json(newUser);
     }
     catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message });
