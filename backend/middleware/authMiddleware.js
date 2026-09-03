@@ -17,7 +17,5 @@ const protect = async (req, res, next) => {
         res.status(401).json({ message: 'Not authorized, no token' });
     }
 }
-const admin = async (req, res, next) => {
-
-};
-module.exports = { protect, admin };
+ 
+module.exports = { protect};
