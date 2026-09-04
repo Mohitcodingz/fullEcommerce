@@ -1,0 +1,10 @@
+const express = require('express');
+const router = express.Router();
+const { protect } = require('../middleware/authMiddleware');
+const { isAdmin}  = require('../middleware/adminMiddleware');
+const { getProducts, createProduct, getProductById, updateProduct, deleteProduct } = require('../controller/productController.js');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+router.route('/').get(getProducts).post(protect, isAdmin, upload.single('image'), createProduct);
+router.route('/:id').get(getProductById).put(protect, isAdmin, upload.single('image'), updateProduct).delete(protect, isAdmin, deleteProduct);
+module.exports = router;
