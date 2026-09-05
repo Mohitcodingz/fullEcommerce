@@ -28,6 +28,10 @@ async function registerUser(req, res) {
         await newUser.save();
         if (newUser) {
             const otp = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit OTP
+            const otpExpires = new Date(Date.now() + 5 * 60 * 1000);
+            newUser.otp = otp;
+            newUser.otpExpires = otpExpires;
+            await newUser.save()
             const message = `Welcome ${newUser.name}! Your OTP for email verification is: ${otp}`;
             await sendEmail(email, 'Email Verification', message);
             res.status(201).json({
@@ -86,4 +90,31 @@ async function getUser(req, res) {
         res.status(500).json({ message: 'Server error', error: error.message });
     }
 }
-module.exports = { registerUser, loginUser, getUser };
+async function verifyOtp (req, res) {
+    try {
+
+        const { email, otp } = req.body;
+        const userEmail = await user.findOne({ email: email });
+        if (userEmail) {
+            if (userEmail.otp == otp) {
+                res.status(201).json('OTP matched successfully')
+                userEmail.verified =true
+                userEmail.save()
+            }   
+            else {
+                res.status(404).json('Otp Invalid')
+            }
+        }
+        else {
+            res.status(404).json('User Not found')
+        }
+    }
+    catch (error) {
+        res.status(500).json({
+            message: 'Error occurred',
+            error: error.message
+        });
+    }
+
+}
+module.exports = { registerUser, loginUser, getUser ,verifyOtp};
