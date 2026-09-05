@@ -29,7 +29,8 @@ async function registerUser(req, res) {
         if (newUser) {
             const otp = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit OTP
             const otpExpires = new Date(Date.now() + 5 * 60 * 1000);
-            newUser.otp = otp;
+            const hashedOtp =  bcrypt.hashSync(otp, 6);
+            newUser.otp = hashedOtp;
             newUser.otpExpires = otpExpires;
             await newUser.save()
             const message = `Welcome ${newUser.name}! Your OTP for email verification is: ${otp}`;
@@ -96,7 +97,8 @@ async function verifyOtp (req, res) {
         const { email, otp } = req.body;
         const userEmail = await user.findOne({ email: email });
         if (userEmail) {
-            if (userEmail.otp == otp) {
+            const compareOtp =  bcrypt.compareSync( otp.toString(),userEmail.otp);
+            if (compareOtp) {
                 res.status(201).json('OTP matched successfully')
                 userEmail.verified =true
                 userEmail.save()
