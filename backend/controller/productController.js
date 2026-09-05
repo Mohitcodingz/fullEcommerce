@@ -23,6 +23,7 @@ const getProductById = async (req, res) => {
         if (!product_id) {
             return res.status(404).json({ message: 'Product not found' });
         }
+        res.json(product_id);
     }
     catch (error) {
         res.status(500).json({ message: error.message });
