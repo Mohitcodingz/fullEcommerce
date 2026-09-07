@@ -1,27 +1,55 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
 const Schema = new mongoose.Schema({
+
     user: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     },
+
     product: {
-        productId: { types: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
-        quantity: { types: Number, required: true, min: 1 },
-        price:{types:Number, required:true}
+        productId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product',
+            required: true
+        },
+
+        quantity: {
+            type: Number,
+            required: true,
+            min: 1
+        },
+
+        price: {
+            type: Number,
+            required: true
+        }
     },
+
     totalAmount: {
         type: Number,
         required: true
     },
+
     address: {
-        fullName: { types: String, required: true },
-        street: { types: String, required: true },
-        city: { types: String, required: true },
-        pincode: { types: String, required: true },
-        country: { types: String, required: true }
+        fullName: { type: String, required: true },
+        street: { type: String, required: true },
+        city: { type: String, required: true },
+        pincode: { type: String, required: true },
+        country: { type: String, required: true }
     },
+
     paymentId: {
-        types: String, required: true
+        type: String,
+        required: true
     },
-    status: { types: String, default: pending, enum: ['pending', 'shipped', 'delivered'] }
-}, { timestamps: true })
-module.exports = new mongoose.model(Order, Schema)
+
+    status: {
+        type: String,
+        enum: ['pending', 'shipped', 'delivered'],
+        default: 'pending'
+    }
+}, { timestamps: true });
+
+module.exports = mongoose.model('Order', Schema);
