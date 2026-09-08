@@ -1,6 +1,12 @@
 const order = require('../model/order');
 async function myOrders(req,res) {
-
+try{
+ const orders = await order.find({user:req.user_id});
+ res.status(200).json({message:'Your Orders are fetched',orders})
+}
+catch(error){
+res.status(500).json({message:'The error occured while myOrder function ',error, })
+}
 }
 async function createOrder(req, res) {
     try {
@@ -41,9 +47,7 @@ async function getOrder(req,res) {
         res.status(404).json({ message: 'The getOrder function got an error', error: error.message })
     }
 }
-async function getOrderById() {
 
-}
 async function updateOrderLists() {
 
 }
