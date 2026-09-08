@@ -1,12 +1,13 @@
 const order = require('../model/order');
-async function myOrders(req,res) {
-try{
- const orders = await order.find({user:req.user_id});
- res.status(200).json({message:'Your Orders are fetched',orders})
-}
-catch(error){
-res.status(500).json({message:'The error occured while myOrder function ',error, })
-}
+const user = require('../model/user');
+async function myOrders(req, res) {
+    try {
+        const orders = await order.find({ user: req.user._id });
+        res.status(200).json({ message: 'Your Orders are fetched successfully', orders })
+    }
+    catch (error) {
+        res.status(500).json({ message: 'The error occured while myOrder function ', error })
+    }
 }
 async function createOrder(req, res) {
     try {
@@ -24,7 +25,7 @@ async function createOrder(req, res) {
                 address,
                 paymentId
             })
-            await orders.save()
+            await orders.save();
 
             return res.status(201).json({
                 message: 'Order created successfully',
@@ -37,19 +38,30 @@ async function createOrder(req, res) {
         res.status(202).json({ message: 'Error occured', error: error.message })
     }
 }
-async function getOrder(req,res) {
+async function getOrder(req, res) {
     try {
         const Orders = await order.find({});
-           res.status(201).json({ message: "The data fetched successfully",Orders })
-        
+        res.status(201).json({ message: "The data fetched successfully", Orders })
+
     }
     catch (error) {
         res.status(404).json({ message: 'The getOrder function got an error', error: error.message })
     }
 }
 
-async function updateOrderLists() {
+async function updateOrderLists(req, res) {
+    try {
+        const findUser = await order.findOne({
+            user: req.user._id,
+            _id: req.params.id
+        })
+        if (!findUser) {
+            res.status(404).json({ message: "There is no Order matching such Order Id." })
+        }
+    }
+    catch (error) {
 
+    }
 }
 
 module.exports = { getOrder, updateOrderLists, createOrder, myOrders }
