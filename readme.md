@@ -25,4 +25,4 @@ Folder: - utils ( this contains the any function we don't know where to put so w
 
 
 
-Notes :- <!-- req gets updated  get(protect, myorders) here protect middleware updates the req and saves the user id in it that's makes it beneficial for the myoders function where we can fetch taht user by writeing user.req._id from the database. reference files are aorderrouters,js,orderController.js -->
+Notes :- <!-- req gets updated  get(protect, myorders) here protect middleware updates the req and saves the user id in it that's makes it beneficial for the myoders function where we can fetch taht user by writeing user.req._id from the database. reference files are aorderrouters,js,orderController.js -->.
