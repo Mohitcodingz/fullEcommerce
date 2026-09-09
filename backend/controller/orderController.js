@@ -58,7 +58,7 @@ async function getOrder(req, res) {
   }
 }
 
-async function updateOrderLists(req, res) {
+async function updateOrderStatus(req, res) {
   try {
     const findUser = await order.findOne({
       user: req.user._id,
@@ -87,4 +87,4 @@ async function updateOrderLists(req, res) {
   }
 }
 
-module.exports = { getOrder, updateOrderLists, createOrder, myOrders };
+module.exports = { getOrder, updateOrderStatus, createOrder, myOrders };
