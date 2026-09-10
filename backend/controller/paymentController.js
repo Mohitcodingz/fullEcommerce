@@ -1,4 +1,4 @@
-const Cashfree = require('../config/cashfree')
+const cashfree = require('../config/cashfree')
 const order = require('../model/order')
 async function createOrder(req, res) {
     try {
@@ -30,6 +30,34 @@ async function createOrder(req, res) {
     }
 }
 async function verifyPayment(req, res) {
-
+    try {
+        // 1. Get Cashfree order ID
+        // 2. Ask Cashfree for payment status
+        // 3. Check whether payment is SUCCESS
+        // 4. If successful, update MongoDB order
+        // 5. Send response
+        const { order_id } = req.body;
+        if (!order_id) {
+            return res.status(400).json({
+                message: 'Cashfree OrderId is required'
+            })
+        }
+        const response = await cashfree.PGOrderFetchPayment(order_id);
+        const payments = response.data;
+        const successfullPayments = payments.find((x) => { x => x.status === 'success' }
+        )
+        if (!successfullPayments) {
+            return res.status(400).json({
+                message:"Payment is not successful",
+                payments
+            })
+        }
+        return res.status(200).json({message:'payment verfied successfully',successfullPayments})
+    }
+    catch (error) {
+        return res.status(500).json({
+            message: 'error occured in verfiying payment ', error: error.message
+        })
+    }
 }
 module.exports = { createOrder, verifyPayment }
