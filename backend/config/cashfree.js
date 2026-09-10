@@ -1,8 +1,8 @@
-const {Cashfree,CFEnvironment} = require('cashfree-pg');
+const { Cashfree, CFEnvironment } = require('cashfree-pg');
 require('dotenv').config();
-Cashfree.config({
-    cashfree_Env : CFEnvironment.SANDBOX, 
+const Cashfree = new Cashfree({
+    cashfree_Env: CFEnvironment.SANDBOX,
     api_key: process.env.RAZORPAY_API_KEY,
     api_secret: process.env.RAZORPAY_API_SECRET
-})  
+})
 module.exports = Cashfree
