@@ -29,7 +29,7 @@ async function registerUser(req, res) {
         if (newUser) {
             const otp = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit OTP
             const otpExpires = new Date(Date.now() + 5 * 60 * 1000);
-            const hashedOtp =  bcrypt.hashSync(otp, 6);
+            const hashedOtp =  bcrypt.hashSync(otp.toString(), 6);
             newUser.otp = hashedOtp;
             newUser.otpExpires = otpExpires;
             await newUser.save()
