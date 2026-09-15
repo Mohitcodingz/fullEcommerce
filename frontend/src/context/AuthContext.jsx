@@ -1,21 +1,20 @@
-import React, { use, useState } from "react";
-import { createContext, useContext } from "react";
+import { createContext, useState } from 'react';
 
-export default function AuthContext() {
+export const AuthContext = createContext(null);
+
+export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const login = (userData) => {
         setUser(userData);
         localStorage.setItem("userInfo", JSON.stringify(userData));
     }
-    const logout =()=>{
+    const logout = () => {
         setUser(null);
         localStorage.removeItem('userInfo')
     }
     return (
-        <div>
-<AuthContext.Provider value={{user,login,logout}}>
-{childern}
-</AuthContext.Provider>
-        </div>
-    )
+        <AuthContext.Provider value={{ user, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
 }
