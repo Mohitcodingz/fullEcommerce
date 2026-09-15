@@ -40,3 +40,14 @@ Folder: - utils ( this contains the any function we don't know where to put so w
 seed.js:- this is a dummy data for each route data you can call it sample data.
 
 Notes :- req gets updated  get(protect, myorders) here protect middleware updates the req and saves the user id in it that's makes it beneficial for the myoders function where we can fetch taht user by writeing user.req._id from the database. reference files are aorderrouters,js,orderController.js 
+
+
+#Frontend
+
+Folder : - Admin 
+Folder : - Assets
+Folder : - Components
+Folder : - Context
+Folder : - pages
+Folder : - redux
+Folder : - styles

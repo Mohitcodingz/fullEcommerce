@@ -6,7 +6,7 @@ export default function Navbar() {
         <div className='navbar'>
             <div className="navbarBrand">
                 <Link to='/logo'>
-                    <img src="/myBagsLightTheme.png" className='navbarLogo' />
+                    {/* <img src="/myBagsLightTheme.png" className='navbarLogo' /> */}
                 </Link>
             </div>
             <ul className="navbarLinks">
@@ -20,7 +20,7 @@ export default function Navbar() {
                     <Link to='/cart'>Cart</Link>
                 </li>
                 <li>
-                    <Link to='/'>Profile</Link>
+                    <Link to='/profile'>Profile</Link>
                 </li>
             </ul>
         </div>

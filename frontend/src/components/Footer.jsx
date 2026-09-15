@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-brand">
           <Link to="/" className="footer-logo">
-            <img src="/myBagsLightTheme.png" alt="YBags Logo" />
+            {/* <img src="/myBagsLightTheme.png" alt="YBags Logo" /> */}
           </Link>
           <p className="footer-copy">
             Carry your story in style.
