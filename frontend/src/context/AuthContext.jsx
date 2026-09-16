@@ -1,7 +1,5 @@
 import { createContext, useState } from 'react';
-
-export const AuthContext = createContext(null);
-
+import authController from './store'
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const login = (userData) => {
