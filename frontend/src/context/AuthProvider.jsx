@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import authController from './store'
+import AuthContext from './store'
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const login = (userData) => {
@@ -16,3 +16,4 @@ export function AuthProvider({ children }) {
         </AuthContext.Provider>
     );
 }
+export default AuthProvider

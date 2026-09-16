@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/navbar.css'
-import { AuthContext } from '../context/AuthContext'
+import { AuthContext } from '../context/AuthProvider'
 
 export default function Navbar() { 
     const [user,setUser] = useState(AuthContext);
