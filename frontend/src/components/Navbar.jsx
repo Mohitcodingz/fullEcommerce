@@ -26,7 +26,14 @@ export default function Navbar() {
                     <Link to='/cart'>Cart</Link>
                 </li>
                {
-                user?():()
+                user?(
+                    <>
+                    <li><Link to='' >Hi, {user.name}</Link></li>
+                    {user.role
+
+                    }
+                    </>
+                ):()
                }
                 <li>
                     <Link to='/cart'>Cart</Link>
