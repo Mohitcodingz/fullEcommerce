@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+
 import { Link } from 'react-router-dom'
 import '../styles/navbar.css'
-import AuthContext from '../context/store'
+import AuthContext from '../context/AuthContext';
 
 export default function Navbar() {
-// reviving the values foromthe authprovider.
-    const { user, login, logOut } = useContext(AuthContext);
-    // const cartItems = useSelector((state)=>)
+    // reviving the values foromthe authprovider.
+    const { user, logout } = useContext(AuthContext);
+
     return (
         <div className='navbar'>
             <div className="navbarBrand">
@@ -23,25 +23,23 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                    <Link to='/cart'>Cart</Link>
+                    <Link to='/cart'>Cart </Link>
                 </li>
-               {
-                user?(
-                    <>
-                    <li><Link to='' >Hi, {user.name}</Link></li>
-                    {user.role
 
-                    }
-                    </>
-                ):()
-               }
-                <li>
-                    <Link to='/cart'>Cart</Link>
-                </li>
-                <li>
-                    <Link to='/profile'>Profile</Link>
-                </li>
-            </ul>
-        </div>
+                {
+
+                    user ? (<div>
+                        <li><Link to='/profile'>Hi, {user.name}</Link>
+                        </li>{user.role === 'admin' && <li><Link to='/admin'>Admin</Link></li>}
+                        <li><button onClick={logout}>LogOut</button></li>
+                    </div>) : (
+                        <li><Link to='/login'>
+                            Login</Link></li>
+                    )
+
+                }
+
+            </ul >
+        </div >
     )
 }
