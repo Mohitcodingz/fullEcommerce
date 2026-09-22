@@ -1,15 +1,16 @@
 import { useContext } from 'react';
-import { Link, UNSAFE_SingleFetchRedirectSymbol, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/navbar.css'
 import AuthContext from '../context/AuthContext';
 
 export default function Navbar() {
     // reviving the values foromthe authprovider.
     const { user, logout } = useContext(AuthContext);
-    const cartItems = useSelector((state)=>{state.cart.cartItems});
+    const cartItems = useSelector((state) => state.cart.cartItems);
     const navigate = useNavigate();
 
-    const handleLogout = () => {
+    const handleLogout = () => {    
         logout();
         navigate('/login')
     }
@@ -30,7 +31,7 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                    <Link to='/cart'>{cartItems.length}</Link>
+                    <Link to='/cart'>{cartItems.length === 0 ? 'Cart' : cartItems.length}</Link>
                 </li>
                 {
                     user ? (<div>

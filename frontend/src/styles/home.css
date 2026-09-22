@@ -1,0 +1,84 @@
+.homepageContainer {
+  flex: 1;
+  padding: 0 clamp(20px, 6vw, 88px) 80px;
+}
+
+.homeIntro {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: clamp(58px, 10vw, 120px) 0 74px;
+  border-bottom: 1px solid #d9d1c5;
+}
+
+.homeKicker {
+  margin: 0 0 14px;
+  color: #c45128;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.homeIntro h1 {
+  max-width: 650px;
+  margin: 0;
+  color: #1f2521;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(42px, 6vw, 78px);
+  font-weight: normal;
+  line-height: 0.98;
+}
+
+.homeIntro > p:last-child {
+  max-width: 450px;
+  margin: 24px 0 0;
+  color: #69736b;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.featuredSection {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding-top: 54px;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  color: #1f2521;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.loadingState {
+  padding: 45px 0;
+  color: #69736b;
+}
+
+@media (max-width: 900px) {
+  .productGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .homepageContainer {
+    padding-bottom: 55px;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productCard {
+    max-width: 330px;
+  }
+}

@@ -1,11 +1,12 @@
 .navbar {
-  min-height: 76px;
-  padding: 0 40px;
-  border-bottom: 1px solid #e7e1d9;
-  background: #ffffff;
+  min-height: 84px;
+  padding: 0 clamp(20px, 6vw, 88px);
+  border-bottom: 1px solid #d9d1c5;
+  background: #fbf8f2;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 4px 18px rgba(31, 37, 33, 0.06);
 }
 
 .navbarBrand {
@@ -19,34 +20,56 @@
 
 .navbarLogo {
   display: block;
-  width: 160px;
+  width: 148px;
   height: auto;
 }
 
 .navbarLinks {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 26px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .navbarLinks a {
-  color: #69736b;
-  font-family: Arial, sans-serif;
-  font-size: 13px;
-  font-weight: bold;
+  color: #3f4a42;
+  font-size: 12px;
+  letter-spacing: 0.08em;
   text-decoration: none;
   text-transform: uppercase;
+  transition: color 180ms ease;
 }
 
 .navbarLinks a:hover {
   color: #d96b3b;
 }
 
+.navbarLinks button {
+  border: 0;
+  padding: 0;
+  color: #3f4a42;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.navbarLinks button:hover {
+  color: #d96b3b;
+}
+
+.navbarLinks > div {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
 @media (max-width: 600px) {
   .navbar {
-    padding: 15px 20px;
+    padding: 16px 20px;
     display: block;
   }
 
@@ -56,8 +79,13 @@
 
   .navbarLinks {
     margin-top: 12px;
-    justify-content: space-between;
-    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px 18px;
+  }
+
+  .navbarLinks > div {
+    gap: 18px;
   }
 
   .navbarLinks a {
