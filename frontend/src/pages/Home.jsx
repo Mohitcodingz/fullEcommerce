@@ -5,15 +5,22 @@ import '../styles/home.css'
 export default function Home() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     async function fetchProducts() {
       try {
         const response = await fetch('/api/products')
-        const data = await response.json()
-        setProducts(data.slice(0, 4))
+        const data = await response.json().catch(() => null)
+
+        if (!response.ok) {
+          throw new Error(data?.message || `Unable to load products (${response.status})`)
+        }
+
+        setProducts(Array.isArray(data) ? data.slice(0, 4) : [])
       } catch (error) {
-        console.log(error)
+        console.error(error)
+        setError(error.message || 'Unable to load products')
       } finally {
         setLoading(false)
       }
@@ -37,6 +44,8 @@ export default function Home() {
         </div>
         {loading ? (
           <div className="loadingState">Loading the latest arrivals...</div>
+        ) : error ? (
+          <div className="errorState">{error}</div>
         ) : (
           <div className="productGrid">
             {products.map((item) => (
