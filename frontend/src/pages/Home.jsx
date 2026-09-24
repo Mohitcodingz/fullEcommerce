@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import '../styles/home.css'
-
+// comment
 export default function Home() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
