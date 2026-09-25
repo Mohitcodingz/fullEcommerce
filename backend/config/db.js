@@ -3,7 +3,7 @@ require('dotenv').config();
 async function connectDB() {
     try {
         if (!process.env.MONGODB_URI) {
-            throw new Error('MONGODB_URI is missing in backend/.env');
+            throw new Error('MONGODB_URI is not set. Configure it in backend/.env locally or in the backend service variables on Railway.');
         }
 
         const connect = await mongoose.connect(process.env.MONGODB_URI);
