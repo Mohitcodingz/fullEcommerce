@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/productCard.css'
 export default function ProductCard({ product }) {
@@ -9,7 +8,7 @@ export default function ProductCard({ product }) {
       <div className="productInfo">
       <h3>{product.name}</h3>
       <p>{product.price}</p>
-      <Link to={`/products/${product._id}`} className='productDetails'>
+      <Link to={`/product/${product._id}`} className='productDetails'>
       View details
       </Link>
       </div>

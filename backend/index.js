@@ -4,7 +4,13 @@ const app = express();
 const connectDB = require('./config/db');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors(
+    {
+        origin: ['http://localhost:3000', 'https://127.0.0.1:3000'],
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization']
+    }
+));
 const env = require('dotenv').config();
 app.get('/', (req, res) => {
     res.send('Home Page')
@@ -15,7 +21,17 @@ app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/payments', require('./routes/paymentRoutes'));
 app.use('/api/analytics', require('./routes/analyticsRoutes'))
 const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-    connectDB();
-    console.log(`The server is running on http://localhost:${PORT}`)
-})
+
+async function startServer() {
+    try {
+        await connectDB()
+        app.listen(PORT, () => {
+            console.log(`The server is running on http://localhost:${PORT}`)
+        })
+    } catch (error) {
+        console.error('Server startup failed:', error.message)
+        process.exit(1)
+    }
+}
+
+startServer()

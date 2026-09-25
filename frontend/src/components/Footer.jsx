@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/footer.css'
 
@@ -35,6 +34,7 @@ export default function Footer() {
             <h4>Support</h4>
             <Link to="/shipping">Shipping</Link>
             <Link to="/returns">Returns</Link>
+            <Link to="/disclaimer">Disclaimer</Link>
             <Link to="/track-order">Track Order</Link>
           </div>
         </div>
