@@ -14,18 +14,18 @@ async function registerUser(req, res) {
 
         const { name, email, password } = req.body;
         const existingUser = await user.findOne({ email });
-        if (existingUser) {
+        if (existingUser?.verified) {
             return res.status(400).json({ message: 'User already exists' });
         }
+        const isNewUser = !existingUser;
         // TODO: otp sending verification after registration
         // TODO: welcome Email after registration
-        const hashedPassword = bcrypt.hashSync(password, 8);
-        const newUser = new user({
-            name: name,
-            email: email,
-            password: hashedPassword
+        const newUser = existingUser || new user({
+            name,
+            email,
+            password: bcrypt.hashSync(password, 8)
         });
-        await newUser.save();
+        if (isNewUser) await newUser.save();
         if (newUser) {
             const otp = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit OTP
             const otpExpires = new Date(Date.now() + 5 * 60 * 1000);
@@ -34,14 +34,24 @@ async function registerUser(req, res) {
             newUser.otpExpires = otpExpires;
             await newUser.save()
             const message = `Welcome ${newUser.name}! Your OTP for email verification is: ${otp}`;
-            await sendEmail(email, 'Email Verification', message);
-            res.status(201).json({
+            try {
+                await sendEmail(email, 'Email Verification', message);
+            } catch (emailError) {
+                if (isNewUser) await newUser.deleteOne();
+                console.error('Registration email delivery failed:', emailError.code || emailError.message);
+                return res.status(503).json({
+                    message: 'Could not send the verification email. Check EMAIL_USER and EMAIL_PASS in backend/.env. Gmail requires an App Password.'
+                });
+            }
+            res.status(isNewUser ? 201 : 200).json({
                 _id: newUser._id,
                 name: newUser.name,
                 email: newUser.email,
                 role: newUser.role,
                 token: generateToken(newUser._id),
-                message: 'User registered successfully. Please check your email for verification.'
+                message: isNewUser
+                    ? 'User registered successfully. Please check your email for verification.'
+                    : 'Verification email sent. Please check your inbox.'
             });
         }
         else {

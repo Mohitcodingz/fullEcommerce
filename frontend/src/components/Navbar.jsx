@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import '../styles/navbar.css'
-import AuthContext from '../context/AuthContext';
+import AuthContext from '../context/authContextValue';
 
 export default function Navbar() {
     // reviving the values foromthe authprovider.
@@ -18,7 +18,7 @@ export default function Navbar() {
     return (
         <div className='navbar'>
             <div className="navbarBrand">
-                <Link to='/logo'>
+                <Link to='/'>
                     <img src="/myBagsLightTheme.png" className='navbarLogo' />
                 </Link>
             </div>
