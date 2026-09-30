@@ -1,0 +1,9 @@
+.env.example
+backend
+frontend
+fullEcommerce-master (1)
+fullEcommerce-master (1).zip
+nixpacks.toml
+package.json
+railway.json
+RAILWAY_DEPLOY.md
