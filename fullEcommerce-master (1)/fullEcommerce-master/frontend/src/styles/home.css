@@ -1,0 +1,335 @@
+/* ====================================================
+   HOMEPAGE STYLING (EDITORIAL LUXURY LOOK)
+   ==================================================== */
+
+.homepage-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-editorial-section {
+  position: relative;
+  background: radial-gradient(circle at 85% 15%, rgba(247, 235, 217, 0.9) 0%, rgba(245, 240, 232, 1) 70%);
+  border-bottom: 1px solid #e2dacd;
+  padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 60px);
+}
+
+.hero-editorial-content {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #ded5c8;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f2521;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.sparkle-gold {
+  color: #d97706;
+}
+
+.hero-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(38px, 6.5vw, 76px);
+  color: #1f2521;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+  max-width: 900px;
+}
+
+.hero-italic {
+  font-style: italic;
+  color: #c45128;
+}
+
+.hero-description {
+  max-width: 580px;
+  color: #59645c;
+  font-size: clamp(16px, 1.8vw, 18.5px);
+  line-height: 1.65;
+  margin: 0 0 36px;
+}
+
+.hero-action-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #1f2521;
+  color: #ffffff;
+  padding: 15px 32px;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(31, 37, 33, 0.2);
+}
+
+.btn-hero-primary:hover {
+  background: #c45128;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(196, 81, 40, 0.35);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: #1f2521;
+  border: 1px solid #c9beae;
+  padding: 15px 28px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-hero-secondary:hover {
+  background: #ffffff;
+  border-color: #1f2521;
+}
+
+/* Value Props Ribbon */
+.value-props-ribbon {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px clamp(20px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.value-prop-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  background: #ffffff;
+  border: 1px solid #e7dfd3;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(31, 37, 33, 0.03);
+}
+
+.prop-icon-halo {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  background: #fbf5ec;
+  border: 1px solid #ebd9c0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c45128;
+}
+
+.value-prop-card h4 {
+  margin: 0 0 3px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #1f2521;
+}
+
+.value-prop-card p {
+  margin: 0;
+  font-size: 12.5px;
+  color: #69736b;
+  line-height: 1.35;
+}
+
+/* Featured Section */
+.featured-section {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px clamp(20px, 4vw, 40px) 70px;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.section-kicker {
+  display: block;
+  color: #c45128;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+
+.section-title {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(28px, 4vw, 36px);
+  color: #1f2521;
+  font-weight: 600;
+}
+
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #1f2521;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.view-all-link:hover {
+  color: #c45128;
+  transform: translateX(3px);
+}
+
+.featured-product-grid,
+.home-loading-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+/* Craftsmanship Banner */
+.craftsmanship-banner {
+  max-width: 1280px;
+  width: calc(100% - 40px);
+  margin: 20px auto 90px;
+  background: #1f2521;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: clamp(48px, 8vw, 84px) clamp(24px, 6vw, 64px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(31, 37, 33, 0.15);
+}
+
+.craft-banner-inner {
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+
+.craft-kicker {
+  color: #f7b28d;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.craft-banner-inner h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(30px, 4.5vw, 44px);
+  line-height: 1.2;
+  font-weight: normal;
+  margin: 0 0 18px;
+}
+
+.craft-banner-inner p {
+  color: #d1d8d3;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 28px;
+}
+
+.btn-craft-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #1f2521;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-craft-cta:hover {
+  background: #c45128;
+  color: #ffffff;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1080px) {
+  .featured-product-grid,
+  .home-loading-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .value-props-ribbon {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-product-grid,
+  .home-loading-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .hero-break {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .featured-product-grid,
+  .home-loading-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .value-props-ribbon {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .btn-hero-primary,
+  .btn-hero-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

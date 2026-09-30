@@ -1,0 +1,19 @@
+.about-page { background: #f5f0e8; color: #1f2521; }
+.about-hero { min-height: 470px; padding: clamp(70px, 11vw, 140px) clamp(24px, 9vw, 130px); display: flex; align-items: end; justify-content: space-between; gap: 40px; background: #dfe8df; }
+.about-hero > div:first-child { max-width: 720px; }
+.about-eyebrow { margin: 0 0 15px; color: #c15e35; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.about-hero h1 { margin: 0 0 22px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(48px, 7vw, 94px); font-weight: 400; line-height: .98; }
+.about-lead { max-width: 560px; margin: 0; color: #4e5a51; font-family: Georgia, 'Times New Roman', serif; font-size: 20px; line-height: 1.5; }
+.about-mark { color: #c15e35; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(60px, 10vw, 150px); line-height: .7; }
+.about-mark span { color: #1f2521; }
+.about-body, .about-values { max-width: 1120px; margin: 0 auto; padding: 90px clamp(24px, 5vw, 70px); }
+.about-body { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.about-statement h2 { max-width: 480px; margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(30px, 4vw, 48px); font-weight: 400; line-height: 1.08; }
+.about-copy { max-width: 470px; color: #5d675f; font-size: 16px; line-height: 1.7; }
+.about-copy p { margin: 0 0 20px; }
+.about-values { max-width: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; padding-top: 0; background: #c9d0c8; }
+.about-values article { min-height: 210px; padding: 28px; background: #f5f0e8; }
+.about-values strong { color: #c15e35; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
+.about-values h3 { margin: 36px 0 9px; font-size: 19px; }
+.about-values p { margin: 0; color: #5d675f; line-height: 1.55; }
+@media (max-width: 700px) { .about-hero { min-height: auto; align-items: start; flex-direction: column; } .about-mark { align-self: end; } .about-body, .about-values { grid-template-columns: 1fr; gap: 38px; } .about-values { gap: 1px; } }

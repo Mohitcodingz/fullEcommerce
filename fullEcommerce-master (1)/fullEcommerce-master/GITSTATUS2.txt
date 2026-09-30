@@ -1,0 +1,244 @@
+D  .gitignore
+D  backend/config/cashfree.js
+D  backend/config/cloudinary.js
+D  backend/config/db.js
+D  backend/config/razorpay.js
+D  backend/controller/analyticsController.js
+D  backend/controller/authController.js
+D  backend/controller/orderController.js
+D  backend/controller/paymentController.js
+D  backend/controller/productController.js
+D  backend/index.js
+D  backend/middleware/adminMiddleware.js
+D  backend/middleware/authMiddleware.js
+D  backend/model/order.js
+D  backend/model/product.js
+D  backend/model/user.js
+D  backend/package-lock.json
+D  backend/package.json
+D  backend/routes/analyticsRoutes.js
+D  backend/routes/authRoutes.js
+D  backend/routes/orderRoutes.js
+D  backend/routes/paymentRoutes.js
+D  backend/routes/productRoutes.js
+D  backend/seed.js
+D  backend/uploads/00f519b4e3a67fae4cb1e7c39c32b893
+D  backend/uploads/05732498a8ddaa992646ed7f50f5075b
+D  backend/uploads/1050d5cf8f09e8ad22d0317763b0d5c5
+D  backend/uploads/1f1d9d186be4490854aaf08fd9bb0a56
+D  backend/uploads/4680e00cb89ed4a5acce6aba7981189c
+D  backend/uploads/619c4e38b89c3b4d0b76c1458585635e
+D  backend/uploads/629ba8492d8614bc480b0673696b8d58
+D  backend/uploads/6e2a1e67691f7bea2732a17484aaac2b
+D  backend/uploads/8e8b9cd32db665658d10d35da5c41fa0
+D  backend/uploads/9d58a526931b15ecc2c943e5d6c20a90
+D  backend/uploads/b53b7160b92683fe22ebeb31dc4ffad7
+D  backend/uploads/dfe1c2da881d190e33369da2a3d9ad10
+D  backend/uploads/efb6cf9b3b704cf8fc4c9ca68f124a71
+D  backend/utils/sendEmail.js
+D  frontend/.gitignore
+D  frontend/README.md
+D  frontend/eslint.config.js
+D  frontend/index.html
+D  frontend/package-lock.json
+D  frontend/public/myBagsDarkTheme.png
+D  frontend/public/myBagsLightTheme.png
+D  frontend/src/App.jsx
+D  frontend/src/components/Footer.jsx
+D  frontend/src/components/Navbar.jsx
+D  frontend/src/components/ProductCard.jsx
+D  frontend/src/context/AuthContext.jsx
+D  frontend/src/main.jsx
+D  frontend/src/pages/About.jsx
+D  frontend/src/pages/Disclaimer.jsx
+D  frontend/src/pages/Home.jsx
+D  frontend/src/pages/ReturnPolicy.jsx
+D  frontend/src/redux/cartSlice.js
+D  frontend/src/redux/store.js
+D  frontend/src/styles/footer.css
+D  frontend/src/styles/global.css
+D  frontend/src/styles/home.css
+D  frontend/src/styles/navbar.css
+D  frontend/src/styles/productCard.css
+D  frontend/vite.config.js
+A  "fullEcommerce-master (1).zip"
+D  readme.md
+?? .env.example
+?? RAILWAY_DEPLOY.md
+?? backend/.env.example
+?? backend/config/cashfree.js
+?? backend/config/cloudinary.js
+?? backend/config/db.js
+?? backend/config/razorpay.js
+?? backend/controller/analyticsController.js
+?? backend/controller/authController.js
+?? backend/controller/orderController.js
+?? backend/controller/paymentController.js
+?? backend/controller/productController.js
+?? backend/index.js
+?? backend/middleware/adminMiddleware.js
+?? backend/middleware/authMiddleware.js
+?? backend/model/order.js
+?? backend/model/product.js
+?? backend/model/user.js
+?? backend/package-lock.json
+?? backend/package.json
+?? backend/routes/analyticsRoutes.js
+?? backend/routes/authRoutes.js
+?? backend/routes/orderRoutes.js
+?? backend/routes/paymentRoutes.js
+?? backend/routes/productRoutes.js
+?? backend/seed.js
+?? backend/uploads/00f519b4e3a67fae4cb1e7c39c32b893
+?? backend/uploads/05732498a8ddaa992646ed7f50f5075b
+?? backend/uploads/1050d5cf8f09e8ad22d0317763b0d5c5
+?? backend/uploads/1f1d9d186be4490854aaf08fd9bb0a56
+?? backend/uploads/4680e00cb89ed4a5acce6aba7981189c
+?? backend/uploads/619c4e38b89c3b4d0b76c1458585635e
+?? backend/uploads/629ba8492d8614bc480b0673696b8d58
+?? backend/uploads/6e2a1e67691f7bea2732a17484aaac2b
+?? backend/uploads/8e8b9cd32db665658d10d35da5c41fa0
+?? backend/uploads/9d58a526931b15ecc2c943e5d6c20a90
+?? backend/uploads/b53b7160b92683fe22ebeb31dc4ffad7
+?? backend/uploads/dfe1c2da881d190e33369da2a3d9ad10
+?? backend/uploads/efb6cf9b3b704cf8fc4c9ca68f124a71
+?? backend/utils/sendEmail.js
+?? frontend/.gitignore
+?? frontend/README.md
+?? frontend/eslint.config.js
+?? frontend/index.html
+?? frontend/package-lock.json
+?? frontend/package.json
+?? frontend/public/myBagsDarkTheme.png
+?? frontend/public/myBagsLightTheme.png
+?? frontend/src/App.jsx
+?? frontend/src/admin/AddProduct.jsx
+?? frontend/src/admin/AddProducts.jsx
+?? frontend/src/admin/AdminDashboard.jsx
+?? frontend/src/admin/AdminOrders.jsx
+?? frontend/src/admin/AdminProducts.jsx
+?? frontend/src/admin/AdminUsers.jsx
+?? frontend/src/admin/EditProduct.jsx
+?? frontend/src/components/Footer.jsx
+?? frontend/src/components/Navbar.jsx
+?? frontend/src/components/ProductCard.jsx
+?? frontend/src/context/AuthContext.jsx
+?? frontend/src/context/authContextValue.js
+?? frontend/src/main.jsx
+?? frontend/src/pages/About.jsx
+?? frontend/src/pages/Cart.jsx
+?? frontend/src/pages/Checkout.jsx
+?? frontend/src/pages/Disclaimer.jsx
+?? frontend/src/pages/Home.jsx
+?? frontend/src/pages/Login.jsx
+?? frontend/src/pages/OrderDetails.jsx
+?? frontend/src/pages/OrderSuccess.jsx
+?? frontend/src/pages/ProductDetails.jsx
+?? frontend/src/pages/Profile.jsx
+?? frontend/src/pages/Register.jsx
+?? frontend/src/pages/ReturnPolicy.jsx
+?? frontend/src/pages/Shop.jsx
+?? frontend/src/redux/cartSlice.js
+?? frontend/src/redux/store.js
+?? frontend/src/styles/about.css
+?? frontend/src/styles/admin.css
+?? frontend/src/styles/auth.css
+?? frontend/src/styles/cart.css
+?? frontend/src/styles/disclaimer.css
+?? frontend/src/styles/footer.css
+?? frontend/src/styles/global.css
+?? frontend/src/styles/home.css
+?? frontend/src/styles/navbar.css
+?? frontend/src/styles/product.css
+?? frontend/src/styles/productCard.css
+?? frontend/src/styles/returnPolicy.css
+?? frontend/vite.config.js
+?? "fullEcommerce-master (1)/fullEcommerce-master/.gitignore"
+?? "fullEcommerce-master (1)/fullEcommerce-master/GITSTATUS2.txt"
+?? "fullEcommerce-master (1)/fullEcommerce-master/RAILWAY_DEPLOY.md"
+?? "fullEcommerce-master (1)/fullEcommerce-master/ROOTDIR.txt"
+?? "fullEcommerce-master (1)/fullEcommerce-master/UPLOADS.txt"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/.env.example"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/config/cashfree.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/config/cloudinary.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/config/db.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/config/razorpay.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/controller/analyticsController.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/controller/authController.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/controller/orderController.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/controller/paymentController.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/controller/productController.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/index.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/middleware/adminMiddleware.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/middleware/authMiddleware.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/model/order.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/model/product.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/model/user.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/package-lock.json"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/package.json"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/routes/analyticsRoutes.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/routes/authRoutes.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/routes/orderRoutes.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/routes/paymentRoutes.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/routes/productRoutes.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/seed.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/backend/utils/sendEmail.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/.gitignore"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/README.md"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/eslint.config.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/index.html"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/package-lock.json"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/package.json"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/public/myBagsDarkTheme.png"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/public/myBagsLightTheme.png"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/App.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/admin/AddProduct.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/admin/AddProducts.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/admin/AdminDashboard.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/admin/AdminOrders.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/admin/AdminProducts.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/admin/AdminUsers.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/admin/EditProduct.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/components/Footer.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/components/Navbar.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/components/ProductCard.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/context/AuthContext.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/context/authContextValue.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/main.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/About.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/Cart.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/Checkout.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/Disclaimer.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/Home.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/Login.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/OrderDetails.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/OrderSuccess.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/ProductDetails.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/Profile.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/Register.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/ReturnPolicy.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/pages/Shop.jsx"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/redux/cartSlice.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/redux/store.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/about.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/admin.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/auth.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/cart.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/disclaimer.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/footer.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/global.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/home.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/navbar.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/product.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/productCard.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/src/styles/returnPolicy.css"
+?? "fullEcommerce-master (1)/fullEcommerce-master/frontend/vite.config.js"
+?? "fullEcommerce-master (1)/fullEcommerce-master/nixpacks.toml"
+?? "fullEcommerce-master (1)/fullEcommerce-master/package-lock.json"
+?? "fullEcommerce-master (1)/fullEcommerce-master/package.json"
+?? "fullEcommerce-master (1)/fullEcommerce-master/railway.json"
+?? "fullEcommerce-master (1)/fullEcommerce-master/readme.md"
+?? "fullEcommerce-master (1)/fullEcommerce-master/vercel.json"
+?? nixpacks.toml
+?? package.json
+?? railway.json
