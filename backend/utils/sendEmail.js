@@ -4,6 +4,13 @@ const { BrevoClient } = require('@getbrevo/brevo');
 const sendEmail = async (to, subject, text) => {
     const { BREVO_API_KEY, SENDER_EMAIL } = process.env;
 
+    console.log(
+  "Brevo key loaded:",
+  process.env.BREVO_API_KEY
+    ? `${process.env.BREVO_API_KEY.slice(0, 7)}...${process.env.BREVO_API_KEY.slice(-4)}`
+    : "MISSING"
+);
+
     if (!BREVO_API_KEY || !SENDER_EMAIL) {
         const err = new Error(
             'Email is not configured. Set BREVO_API_KEY and SENDER_EMAIL in Railway Variables.'
