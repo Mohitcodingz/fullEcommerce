@@ -13,6 +13,14 @@ import AuthContext from '../context/authContextValue';
 import { clearCart } from '../redux/cartSlice';
 import '../styles/cart.css';
 // Add this to load CashFree SDK
+
+export default function Checkout() {
+  const { user } = useContext(AuthContext);
+  const paymentReference = useId();
+  const cartItems = useSelector((state) => state.cart.cartItems || []);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
 useEffect(() => {
   const script = document.createElement('script');
   script.src = 'https://sdk.cashfree.com/js/ui/checkout.js';
@@ -22,12 +30,6 @@ useEffect(() => {
     if (document.body.contains(script)) document.body.removeChild(script);
   };
 }, []);
-export default function Checkout() {
-  const { user } = useContext(AuthContext);
-  const paymentReference = useId();
-  const cartItems = useSelector((state) => state.cart.cartItems || []);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const [address, setAddress] = useState({
     fullName: user?.name || '',
