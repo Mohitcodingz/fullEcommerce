@@ -91,15 +91,15 @@ async function seedDatabase() {
         console.log('Old data deleted');
 
         // Hash password
-        const hashedPassword = await bcrypt.hash(
-            'Password123!',
-            10
-        );
+       const hashedPassword = await bcrypt.hash(
+    'Mohit@2003',
+    10
+);
 
         // Create users
         const admin = await User.create({
             name: 'Store Admin',
-            email: 'admin@example.com',
+            email: 'topmetopg@gmail.com',
             password: hashedPassword,
             role: 'admin',
             verified: true
@@ -243,15 +243,13 @@ async function seedDatabase() {
         console.log(`Products: ${createdProducts.length}`);
         console.log('Orders: 4');
 
+      console.log('Admin Login:');
+console.log('Email: topmetopg@gmail.com');
+console.log('Password: Mohit@2003');
         console.log('');
-        console.log('Admin Login:');
-        console.log('Email: admin@example.com');
-        console.log('Password: Password123!');
-
-        console.log('');
-        console.log('User Login:');
-        console.log('Email: mohit@example.com');
-        console.log('Password: Password123!');
+       console.log('User Login:');
+console.log('Email: mohit@example.com');
+console.log('Password: Mohit@2003');
 
     } catch (error) {
 

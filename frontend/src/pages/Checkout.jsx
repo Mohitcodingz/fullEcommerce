@@ -20,14 +20,18 @@ export default function Checkout() {
   const cartItems = useSelector((state) => state.cart.cartItems || []);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
 useEffect(() => {
   const script = document.createElement('script');
-  script.src = 'https://sdk.cashfree.com/js/ui/checkout.js';
+
+  script.src = 'https://sdk.cashfree.com/js/v3/cashfree.js';
   script.async = true;
+
   document.body.appendChild(script);
+
   return () => {
-    if (document.body.contains(script)) document.body.removeChild(script);
+    if (document.body.contains(script)) {
+      document.body.removeChild(script);
+    }
   };
 }, []);
 
@@ -76,13 +80,12 @@ const [paymentMethod, setPaymentMethod] = useState('cod'); // 'cod' or 'cashfree
       setProcessing(false);
     }
   };
-
   const handleCashFreePayment = async () => {
   try {
-    // Step 1: Create order in your database first to get order ID
+    // 1. Create order in your MongoDB
     const createOrderRes = await fetch('/api/orders', {
       method: 'POST',
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${user.token}`
       },
@@ -96,12 +99,17 @@ const [paymentMethod, setPaymentMethod] = useState('cod'); // 'cod' or 'cashfree
 
     if (!createOrderRes.ok) {
       const errorData = await createOrderRes.json().catch(() => null);
-      setErrorMessage(errorData?.message || 'Failed to create order');
+
+      setErrorMessage(
+        errorData?.message || 'Failed to create order'
+      );
+
       setProcessing(false);
       return;
     }
 
-    const orderData = await createOrderRes.json().catch(() => null);
+    const orderData = await createOrderRes.json();
+
     const orderId = orderData?.order?._id;
 
     if (!orderId) {
@@ -110,49 +118,84 @@ const [paymentMethod, setPaymentMethod] = useState('cod'); // 'cod' or 'cashfree
       return;
     }
 
-    // Step 2: Create CashFree payment order
-    const cfOrderRes = await fetch(`/api/payment/order/${orderId}`, {
-      method: 'POST',
-      headers: { 
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${user.token}`
+    // 2. Create Cashfree payment order
+    const cfOrderRes = await fetch(
+      `/api/payment/order/${orderId}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${user.token}`
+        }
       }
-    });
+    );
+
+    const cfOrderData = await cfOrderRes.json().catch(() => null);
 
     if (!cfOrderRes.ok) {
-      const errorData = await cfOrderRes.json().catch(() => null);
-      setErrorMessage(errorData?.message || 'Failed to create payment order');
+      setErrorMessage(
+        cfOrderData?.message ||
+        'Failed to create Cashfree payment order'
+      );
+
       setProcessing(false);
       return;
     }
 
-    const cfOrderData = await cfOrderRes.json().catch(() => null);
-
+    // 3. Make sure Cashfree returned a payment session
     if (!cfOrderData?.payment_session_id) {
-      // If gateway not configured, allow demo placement
-      return placeDirectOrder(`demo_gateway_fallback_${Date.now()}`);
+      setErrorMessage(
+        'Cashfree did not return a payment session ID.'
+      );
+
+      setProcessing(false);
+      return;
     }
 
-    // Step 3: Load CashFree SDK if available
+    // 4. Wait until Cashfree SDK is loaded
     if (!window.Cashfree) {
-      console.warn('CashFree SDK not loaded, falling back to direct order');
-      return placeDirectOrder(`demo_fallback_${Date.now()}`);
+      setErrorMessage(
+        'Cashfree SDK is still loading. Please try again.'
+      );
+
+      setProcessing(false);
+      return;
     }
 
-    // Step 4: Initialize CashFree checkout
-    const checkout = new window.Cashfree({
-      mode: 'sandbox'  // Change to 'production' in production
+    // 5. Initialize Cashfree
+    const cashfree = window.Cashfree({
+      mode: 'sandbox'
     });
 
-    await checkout.redirect({
+    // 6. Open Cashfree hosted checkout
+    const checkoutOptions = {
       paymentSessionId: cfOrderData.payment_session_id,
-      returnUrl: `${window.location.origin}/ordersuccess?orderId=${orderId}`
-    });
+      redirectTarget: '_modal'
+    };
+
+    const result = await cashfree.checkout(checkoutOptions);
+
+    console.log('Cashfree checkout result:', result);
+
+    // Cashfree completed/returned from checkout
+    if (result?.paymentDetails) {
+      console.log(
+        'Cashfree payment completed:',
+        result.paymentDetails
+      );
+    }
+
+    setProcessing(false);
 
   } catch (error) {
-    console.error('CashFree Error:', error);
-    // Fallback for demo testing
-    await placeDirectOrder(`demo_simulated_${Date.now()}`);
+    console.error('Cashfree Checkout Error:', error);
+
+    setErrorMessage(
+      error?.message ||
+      'Unable to open Cashfree payment checkout.'
+    );
+
+    setProcessing(false);
   }
 };
 
@@ -294,13 +337,13 @@ const [paymentMethod, setPaymentMethod] = useState('cod'); // 'cod' or 'cashfree
                   fontWeight: '600'
                 }}
               >
-                <input 
-    type="radio" 
-    name="paymentMethod" 
-    value="cashfree"  // ✅ CHANGE
-    checked={paymentMethod === 'cashfree'}  // ✅ CHANGE
-    onChange={() => setPaymentMethod('cashfree')}  // ✅ CHANGE
-  />
+             <input
+  type="radio"
+  name="paymentMethod"
+  value="cashfree"
+  checked={paymentMethod === 'cashfree'}
+  onChange={() => setPaymentMethod('cashfree')}
+/>
   <CreditCard size={20} color="#1f2521" />
   <span>CashFree Payment (UPI, Cards, NetBanking)</span>
               </label>
@@ -361,3 +404,5 @@ const [paymentMethod, setPaymentMethod] = useState('cod'); // 'cod' or 'cashfree
     </div>
   );
 }
+
+ 
